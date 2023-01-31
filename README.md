@@ -1,0 +1,2 @@
+# SocialEventsApp
+Educational project
