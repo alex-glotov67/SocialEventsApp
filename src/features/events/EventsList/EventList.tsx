@@ -1,12 +1,17 @@
 import React from 'react';
+import { IEvent } from '@/types/event.types';
 import { EventListItem } from '../EventListItem/EventListItem';
 
-export const EventList: React.FC = () => {
+interface EventListProps {
+  events: IEvent[];
+}
+
+export const EventList: React.FC<EventListProps> = ({ events }) => {
   return (
     <>
-      <EventListItem />
-      <EventListItem />
-      <EventListItem />
+      {events.map((event) => (
+        <EventListItem event={event} key={event.id} />
+      ))}
     </>
   );
 };
