@@ -6,7 +6,11 @@ import { Icon } from 'semantic-ui-react';
 
 import './Navbar.scss';
 
-export const Navbar: React.FC = () => (
+interface Props {
+  setFormOpen: (formOpen: boolean) => void;
+}
+
+export const Navbar: React.FC<Props> = ({ setFormOpen }) => (
   <Menu inverted stackable className="navbar">
     <Container>
       <Menu.Item header>
@@ -15,7 +19,12 @@ export const Navbar: React.FC = () => (
       </Menu.Item>
       <Menu.Item name="Events" />
       <Menu.Item>
-        <Button positive inverted content="Create Event" />
+        <Button
+          positive
+          inverted
+          content="Create Event"
+          onClick={() => setFormOpen(true)}
+        />
       </Menu.Item>
       <Menu.Item position="right">
         <Button basic inverted content="Log In" />

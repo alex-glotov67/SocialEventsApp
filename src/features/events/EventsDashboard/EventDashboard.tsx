@@ -1,14 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Grid } from 'semantic-ui-react';
 import { EventList } from '../EventsList/EventList';
+import { EventForm } from '../EventForm/EventForm';
+import { sampleData } from '../../../api/sampleData';
 
-export const EventDashboard: React.FC = () => {
+interface Props {
+  isFormOpen: boolean;
+  setFormOpen: (formOpen: boolean) => void;
+}
+
+export const EventDashboard: React.FC<Props> = ({
+  isFormOpen,
+  setFormOpen,
+}) => {
+  const [events, setEvents] = useState(sampleData);
+
   return (
     <Grid>
       <Grid.Column width={10}>
-        <EventList />
+        <EventList events={events} />
       </Grid.Column>
-      <Grid.Column width={6}>Right</Grid.Column>
+      <Grid.Column width={6}>
+        {isFormOpen && <EventForm setFormOpen={setFormOpen} />}
+      </Grid.Column>
     </Grid>
   );
 };
