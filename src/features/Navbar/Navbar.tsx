@@ -11,30 +11,32 @@ interface Props {
 }
 
 export const Navbar: React.FC<Props> = ({ setFormOpen }) => (
-  <Menu inverted stackable className="navbar">
-    <Container>
-      <Menu.Item header>
-        <Icon name="coffee" style={{ marginRight: '12px' }} />
-        Events
-      </Menu.Item>
-      <Menu.Item name="Events" />
-      <Menu.Item>
-        <Button
-          positive
-          inverted
-          content="Create Event"
-          onClick={() => setFormOpen(true)}
-        />
-      </Menu.Item>
-      <Menu.Item position="right">
-        <Button basic inverted content="Log In" />
-        <Button
-          basic
-          inverted
-          content="Register"
-          style={{ marginLeft: '12px' }}
-        />
-      </Menu.Item>
-    </Container>
-  </Menu>
+  <Container fluid className="navbar">
+    <Menu inverted stackable className="navbar_item">
+      <Container>
+        <Menu.Item header>
+          <Icon name="coffee" style={{ marginRight: '12px' }} />
+          Events
+        </Menu.Item>
+        <Menu.Item name="Events" />
+        <Menu.Item>
+          <Button
+            positive
+            inverted
+            content="Create Event"
+            onClick={() => setFormOpen(true)}
+          />
+        </Menu.Item>
+        <Menu.Item position="right">
+          <Button basic inverted content="Log In" />
+          <Button
+            basic
+            inverted
+            content="Register"
+            style={{ marginLeft: '12px' }}
+          />
+        </Menu.Item>
+      </Container>
+    </Menu>
+  </Container>
 );

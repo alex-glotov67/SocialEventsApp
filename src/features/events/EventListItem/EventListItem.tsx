@@ -5,20 +5,17 @@ import { Event } from '../event.types';
 
 interface Props {
   event: Event;
+  setCurrentEvent?: (event: Event) => void;
+  deleteCurrentEvent?: (eventId: string) => void;
 }
 
-export const EventListItem: React.FC<Props> = ({ event }) => {
-  const {
-    title,
-    date,
-    hostPhotoURL,
-    // category,
-    description,
-    // city,
-    venue,
-    hostedBy,
-    attendees,
-  } = event;
+export const EventListItem: React.FC<Props> = ({
+  event,
+  setCurrentEvent,
+  deleteCurrentEvent,
+}) => {
+  const { title, date, hostPhotoURL, description, venue, hostedBy, attendees } =
+    event;
   return (
     <Segment.Group>
       <Segment>
@@ -47,7 +44,18 @@ export const EventListItem: React.FC<Props> = ({ event }) => {
       </Segment>
       <Segment clearing>
         <div>{description}</div>
-        <Button color="teal" floated="right" content="View" />
+        <Button
+          color="teal"
+          floated="right"
+          content="View"
+          onClick={() => setCurrentEvent && setCurrentEvent(event)}
+        />
+        <Button
+          color="red"
+          floated="right"
+          content="Delete"
+          onClick={() => deleteCurrentEvent && deleteCurrentEvent(event.id)}
+        />
       </Segment>
     </Segment.Group>
   );

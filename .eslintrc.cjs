@@ -22,5 +22,6 @@ module.exports = {
   rules: {
     'import/prefer-default-export': 'off',
     'react/function-component-definition': ['off'],
+    'react/require-default-props': 'off',
   },
 };
