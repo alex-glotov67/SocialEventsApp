@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Icon, Item, List, Segment } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 import { EventListAttendee } from '../EventListAttendee/EventListAttendee';
 import { Event } from '../event.types';
 
@@ -48,7 +49,9 @@ export const EventListItem: React.FC<Props> = ({
           color="teal"
           floated="right"
           content="View"
-          onClick={() => setCurrentEvent && setCurrentEvent(event)}
+          // onClick={() => setCurrentEvent && setCurrentEvent(event)}
+          as={Link}
+          to={`/events/${event.id}`}
         />
         <Button
           color="red"

@@ -5,6 +5,7 @@ import { Event } from '../event.types';
 import user from '../../../assets/user.png';
 
 import './EventForm.scss';
+import { Link } from 'react-router-dom';
 
 interface Props {
   setFormOpen: (formOpen: boolean) => void;
@@ -116,6 +117,8 @@ export const EventForm: React.FC<Props> = ({
           onClick={handleOnSubmit}
         />
         <Button
+          as={Link}
+          to="/events"
           type="submit"
           floated="right"
           content="Cancel"

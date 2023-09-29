@@ -7,3 +7,14 @@ body {
   min-width: 320px;
   min-height: 100vh;
 }
+
+.masthead {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(90deg, rgb(139, 135, 216) 0%, rgb(94, 198, 226) 44%, rgba(0,212,255,1) 100%) !important;
+  height: 100vh;
+}
+
+.masthead h1.ui.header {
+  font-size: 4em;
+}
